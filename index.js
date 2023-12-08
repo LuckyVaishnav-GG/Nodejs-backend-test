@@ -1,16 +1,8 @@
 const express = require('express');
 const socialRoutes = require('./routes/social-posts');
-const dotenv = require('dotenv');
+require('dotenv').config();
 const app = express();
-const cors = require('cors')
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-   next();
-  });
 app.use(express.json());
-
-//app.use(cors({origin:[ 'http://localhost:57578','http://127.0.0.1:57578']}));
 
 app.use('/social', socialRoutes);
 
